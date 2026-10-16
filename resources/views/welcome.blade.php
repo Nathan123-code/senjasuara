@@ -21,7 +21,7 @@
             <section class="hero" id="detail-acara">
                 <div class="hero-copy">
                     <div class="eyebrow"><span class="live-dot"></span> Pendaftaran dibuka</div>
-                    <h1>Satu malam.<br><em>Seribu cerita.</em></h1>
+                    <h1>Anjay.<br><em>Keren Banget Jir.</em></h1>
                     <p class="hero-description">Rayakan musik, teman, dan momen yang tidak akan terulang di festival musik paling hangat tahun ini.</p>
 
                     <div class="event-meta">
