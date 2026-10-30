@@ -71,84 +71,78 @@ class RegistrationEmail extends Mailable
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Pendaftaran Tiket</title>
 </head>
-<body style="margin:0;background:#eeeae3;color:#292521;font-family:Arial,Helvetica,sans-serif;">
-    <div style="width:100%;background:#eeeae3;padding:42px 12px;box-sizing:border-box;">
-        <table role="presentation" style="width:100%;max-width:640px;margin:0 auto;border-spacing:0;">
-            <tr>
-                <td style="padding:0 0 16px;">
-                    <table role="presentation" style="width:100%;border-spacing:0;background:#20251f;border-radius:22px 22px 0 0;overflow:hidden;">
-                        <tr>
-                            <td style="padding:34px 38px 38px;background:#20251f;color:#fff;">
-                                <div style="margin-bottom:34px;color:#d9a86c;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">
-                                    Senja Suara &nbsp;•&nbsp; 2024
-                                </div>
-                                <div style="width:48px;height:4px;margin-bottom:20px;background:#d9a86c;"></div>
-                                <h1 style="margin:0;color:#fff;font-size:36px;font-weight:400;line-height:1.12;letter-spacing:-1px;">
-                                    Kamu resmi<br><em style="color:#e8c89c;">terdaftar.</em>
-                                </h1>
-                                <p style="margin:20px 0 0;color:#b8beb4;font-size:14px;line-height:1.6;">
-                                    Simpan email ini sebagai bukti pendaftaranmu di festival.
-                                </p>
-                            </td>
-                            <td style="width:92px;padding:0;vertical-align:bottom;text-align:right;">
-                                <div style="padding:0 28px 28px 0;color:#d9a86c;font-size:54px;line-height:1;">✦</div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding:0 0 16px;">
-                    <table role="presentation" style="width:100%;border-spacing:0;background:#fff;border-radius:0 0 22px 22px;box-shadow:0 18px 45px rgba(41,37,33,.08);">
-                        <tr>
-                            <td style="padding:34px 38px 12px;">
-                                <p style="margin:0 0 8px;color:#8c857c;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;">Halo, {$name}</p>
-                                <p style="margin:0;color:#292521;font-size:20px;line-height:1.4;">Terima kasih sudah memilih untuk <strong>merasakan senja bersama kami.</strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding:22px 38px 10px;">
-                                <table role="presentation" style="width:100%;border-spacing:0;border:1px solid #e7dfd3;border-radius:14px;overflow:hidden;">
-                                    <tr>
-                                        <td style="padding:18px 20px;background:#f8f3ec;color:#8c6b43;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;">Detail tiket</td>
-                                        <td style="padding:18px 20px;background:#f8f3ec;color:#8c6b43;font-size:11px;text-align:right;">Senja Suara Festival</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:20px;color:#756e66;font-size:13px;border-top:1px solid #e7dfd3;">Jenis tiket</td>
-                                        <td style="padding:20px;color:#292521;font-size:15px;font-weight:bold;text-align:right;border-top:1px solid #e7dfd3;">{$ticketType}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:0 20px 20px;color:#756e66;font-size:13px;">Jumlah tiket</td>
-                                        <td style="padding:0 20px 20px;color:#292521;font-size:15px;font-weight:bold;text-align:right;">{$quantity}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:18px 20px;border-top:1px dashed #d9cdbd;color:#756e66;font-size:13px;">Total pembayaran</td>
-                                        <td style="padding:18px 20px;border-top:1px dashed #d9cdbd;color:#b56e3b;font-size:20px;font-weight:bold;text-align:right;">Rp{$totalAmount}</td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding:20px 38px 36px;">
-                                <p style="margin:0 0 14px;color:#8c857c;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;">Data pendaftar</p>
-                                <table role="presentation" style="width:100%;border-spacing:0;">
-                                    <tr><td style="padding:7px 0;color:#8c857c;font-size:13px;">Nama</td><td style="padding:7px 0;color:#292521;font-size:13px;text-align:right;">{$name}</td></tr>
-                                    <tr><td style="padding:7px 0;color:#8c857c;font-size:13px;">Email</td><td style="padding:7px 0;color:#292521;font-size:13px;text-align:right;">{$email}</td></tr>
-                                    <tr><td style="padding:7px 0;color:#8c857c;font-size:13px;">WhatsApp</td><td style="padding:7px 0;color:#292521;font-size:13px;text-align:right;">{$phone}</td></tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding:12px 20px 0;text-align:center;">
-                    <p style="margin:0;color:#8c857c;font-size:12px;line-height:1.7;">Sampai jumpa di Lapangan Renon, Bali.<br><strong style="color:#292521;">Salam hangat, Tim Senja Suara</strong></p>
-                    <p style="margin:22px 0 0;color:#aaa39a;font-size:10px;letter-spacing:1px;">MUSIC &nbsp;•&nbsp; FRIENDS &nbsp;•&nbsp; MOMENTS</p>
-                </td>
-            </tr>
-        </table>
-    </div>
+<body style="margin:0;background-color:#f2efe9;color:#2a2a2a;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2efe9;padding:40px 15px;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background-color:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+                    <tr>
+                        <td style="background-color:#2b193d;background-image:linear-gradient(135deg,#2b193d 0%,#823055 50%,#e2764b 100%);padding:50px 30px;text-align:center;">
+                            <h1 style="color:#fff;margin:0;font-size:34px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Senja Suara</h1>
+                            <div style="width:50px;height:3px;background-color:#f9d371;margin:15px auto;"></div>
+                            <p style="color:#f5e1c8;margin:0;font-size:13px;letter-spacing:4px;text-transform:uppercase;">Festival Musik 2024</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:40px 35px;">
+                            <h2 style="margin:0 0 15px;font-size:22px;color:#2b193d;">Halo, {$name}! &#127749;</h2>
+                            <p style="margin:0 0 25px;font-size:15px;line-height:1.6;color:#5a5550;">
+                                Terima kasih telah memilih untuk merayakan keindahan senja bersama kami. Pendaftaranmu telah sukses! Kami sudah mengamankan tempatmu untuk bernyanyi dan mengukir kenangan di bawah langit sore.
+                            </p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fff9f2;border-left:4px solid #e2764b;border-radius:8px;margin-bottom:30px;">
+                                <tr>
+                                    <td style="padding:20px 25px;">
+                                        <p style="margin:0 0 15px;color:#e2764b;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">Detail Pesananmu</p>
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;">
+                                            <tr>
+                                                <td style="padding-bottom:10px;color:#7a7570;">Kategori Tiket</td>
+                                                <td style="padding-bottom:10px;font-weight:bold;color:#2a2a2a;text-align:right;">{$ticketType}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom:15px;color:#7a7570;">Jumlah Tiket</td>
+                                                <td style="padding-bottom:15px;font-weight:bold;color:#2a2a2a;text-align:right;">{$quantity} Tiket</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="border-top:1px dashed #dcd5cc;padding-top:15px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:#7a7570;font-weight:bold;">Total Pembayaran</td>
+                                                <td style="font-weight:bold;color:#a94242;text-align:right;font-size:18px;">Rp{$totalAmount}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p style="margin:0 0 15px;color:#2b193d;font-size:16px;font-weight:bold;">Data Pendaftar</p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;color:#5a5550;margin-bottom:25px;">
+                                <tr>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;">Nama Lengkap</td>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;font-weight:bold;color:#2a2a2a;text-align:right;">{$name}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;">Alamat Email</td>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;font-weight:bold;color:#2a2a2a;text-align:right;">{$email}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;">No. WhatsApp</td>
+                                    <td style="padding:10px 0;border-bottom:1px solid #f2efe9;font-weight:bold;color:#2a2a2a;text-align:right;">{$phone}</td>
+                                </tr>
+                            </table>
+                            <p style="margin:0;font-size:13px;line-height:1.5;color:#8a8580;text-align:center;background-color:#f7f5f0;padding:15px;border-radius:8px;">
+                                &#128161; Harap simpan email ini dan tunjukkan saat penukaran gelang tiket di meja registrasi <em>venue</em>.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#2b193d;padding:25px 30px;text-align:center;">
+                            <p style="margin:0 0 8px;color:#fff;font-size:14px;font-weight:bold;">Sampai jumpa di Lapangan Renon, Bali!</p>
+                            <p style="margin:0;color:#9c8aab;font-size:11px;letter-spacing:2px;">MUSIC &bull; FRIENDS &bull; MOMENTS</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
 HTML;
