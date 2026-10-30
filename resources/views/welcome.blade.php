@@ -21,7 +21,7 @@
             <section class="hero" id="detail-acara">
                 <div class="hero-copy">
                     <div class="eyebrow"><span class="live-dot"></span> Pendaftaran dibuka</div>
-                    <h1>Anjay.<br><em>Keren Banget Jir.</em></h1>
+                    <h1>Feel the Sound.<br><em>Live the Moment.</em></h1>
                     <p class="hero-description">Rayakan musik, teman, dan momen yang tidak akan terulang di festival musik paling hangat tahun ini.</p>
 
                     <div class="event-meta">
@@ -50,39 +50,44 @@
                         <span class="step-badge">01 <span>/ 01</span></span>
                     </div>
 
-                    <form>
+                    @if (session('success'))
+                        <p role="status">{{ session('success') }}</p>
+                    @endif
+
+                    <form method="POST" action="{{ route('registrations.store') }}">
+                        @csrf
                         <div class="field-grid">
                             <label class="field full-field">
                                 <span>Nama lengkap</span>
-                                <input type="text" name="name" placeholder="Contoh: Naya Putri" autocomplete="name" required>
-                                <small class="field-error">Nama lengkap wajib diisi.</small>
+                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Contoh: Naya Putri" autocomplete="name" required>
+                                @error('name')<small class="field-error">{{ $message }}</small>@enderror
                             </label>
                             <label class="field">
                                 <span>Email aktif</span>
-                                <input type="email" name="email" placeholder="naya@email.com" autocomplete="email" required>
-                                <small class="field-error">Masukkan email yang valid.</small>
+                                <input type="email" name="email" value="{{ old('email') }}" placeholder="naya@email.com" autocomplete="email" required>
+                                @error('email')<small class="field-error">{{ $message }}</small>@enderror
                             </label>
                             <label class="field">
                                 <span>Nomor WhatsApp</span>
-                                <input type="tel" name="phone" placeholder="08xx xxxx xxxx" autocomplete="tel" required>
-                                <small class="field-error">Nomor WhatsApp wajib diisi.</small>
+                                <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="08xx xxxx xxxx" autocomplete="tel" required>
+                                @error('phone')<small class="field-error">{{ $message }}</small>@enderror
                             </label>
                         </div>
 
                         <fieldset class="ticket-options">
                             <legend>Pilih jenis tiket</legend>
                             <label class="ticket-option">
-                                <input type="radio" name="ticket" value="early-bird" data-price="150000" checked>
+                                <input type="radio" name="ticket_type" value="early-bird" data-price="150000" @checked(old('ticket_type', 'early-bird') === 'early-bird')>
                                 <span class="ticket-content"><strong>Early Bird</strong><small>Terbatas • Akses festival</small></span>
                                 <span class="ticket-price">Rp150K</span>
                             </label>
                             <label class="ticket-option">
-                                <input type="radio" name="ticket" value="presale" data-price="250000">
+                                <input type="radio" name="ticket_type" value="presale" data-price="250000" @checked(old('ticket_type') === 'presale')>
                                 <span class="ticket-content"><strong>Presale 2</strong><small>Akses festival + lanyard</small></span>
                                 <span class="ticket-price">Rp250K</span>
                             </label>
                             <label class="ticket-option">
-                                <input type="radio" name="ticket" value="vip" data-price="500000">
+                                <input type="radio" name="ticket_type" value="vip" data-price="500000" @checked(old('ticket_type') === 'vip')>
                                 <span class="ticket-content"><strong>VIP Experience</strong><small>Fast lane + area eksklusif</small></span>
                                 <span class="ticket-price">Rp500K</span>
                             </label>
@@ -92,9 +97,7 @@
                             <label class="quantity-control">
                                 <span>Jumlah</span>
                                 <span class="quantity-input">
-                                    <span aria-hidden="true">−</span>
-                                    <span>1</span>
-                                    <span aria-hidden="true">+</span>
+                                    <input type="number" name="quantity" value="{{ old('quantity', 1) }}" min="1" max="10" required aria-label="Jumlah tiket">
                                 </span>
                             </label>
                             <div class="total">
@@ -104,10 +107,13 @@
                         </div>
 
                         <label class="consent">
-                            <input type="checkbox" name="consent" required>
+                            <input type="checkbox" name="consent" value="1" required @checked(old('consent'))>
                             <span>Saya menyetujui <a href="#syarat">syarat &amp; ketentuan</a> pendaftaran.</span>
                         </label>
-                        <button class="submit-button" type="button">Lanjut ke pembayaran <span aria-hidden="true">→</span></button>
+                        @error('ticket_type')<small class="field-error">{{ $message }}</small>@enderror
+                        @error('quantity')<small class="field-error">{{ $message }}</small>@enderror
+                        @error('consent')<small class="field-error">{{ $message }}</small>@enderror
+                        <button class="submit-button" type="submit">Lanjut ke pembayaran <span aria-hidden="true">→</span></button>
                     </form>
                 </div>
             </section>
