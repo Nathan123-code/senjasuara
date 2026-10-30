@@ -56,6 +56,8 @@ test('the registration email contains the users data', function () {
     $mail->assertSeeInHtml('Naya Putri');
     $mail->assertSeeInHtml('naya@example.com');
     $mail->assertSeeInHtml('081234567890');
+    $mail->assertSeeInText('Pendaftaran tiket kamu sudah berhasil diterima.');
+    $mail->assertSeeInText('naya@example.com');
 });
 
 test('a registration requires valid form data', function () {

@@ -56,6 +56,11 @@
 
                     <form method="POST" action="{{ route('registrations.store') }}">
                         @csrf
+                        <div id="saved-identity" class="saved-identity" hidden>
+                            <p>Data pendaftar terakhir tersedia di perangkat ini.</p>
+                            <button type="button" id="use-saved-identity">Gunakan data terakhir</button>
+                            <button type="button" id="clear-saved-identity">Hapus data tersimpan</button>
+                        </div>
                         <div class="field-grid">
                             <label class="field full-field">
                                 <span>Nama lengkap</span>
@@ -109,6 +114,10 @@
                         <label class="consent">
                             <input type="checkbox" name="consent" value="1" required @checked(old('consent'))>
                             <span>Saya menyetujui <a href="#syarat">syarat &amp; ketentuan</a> pendaftaran.</span>
+                        </label>
+                        <label class="remember-identity">
+                            <input type="checkbox" id="remember-identity" name="remember_identity" value="1">
+                            <span>Ingat nama, email, dan nomor WhatsApp saya di perangkat ini</span>
                         </label>
                         @error('ticket_type')<small class="field-error">{{ $message }}</small>@enderror
                         @error('quantity')<small class="field-error">{{ $message }}</small>@enderror

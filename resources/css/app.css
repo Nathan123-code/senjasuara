@@ -54,6 +54,11 @@ h1 em { color: var(--orange); font-style: normal; }
 .registration-card { width: 100%; padding: 38px 36px 34px; border: 1px solid #e5e6df; border-radius: 18px; background: #fff; box-shadow: 0 24px 70px #1c2b2012; }
 .card-heading { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 31px; }
 .card-heading h2, .success-state h2 { margin: 8px 0 0; font-size: 26px; letter-spacing: -.06em; }
+.saved-identity { margin: -10px 0 22px; padding: 12px; border-radius: 8px; background: #f5f7ef; color: var(--muted); font-size: 11px; }
+.saved-identity p { margin: 0 0 8px; }
+.saved-identity button { margin-right: 10px; padding: 0; border: 0; background: transparent; color: var(--ink); font-size: 11px; font-weight: 700; text-decoration: underline; cursor: pointer; }
+.remember-identity { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 18px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.remember-identity input { margin-top: 1px; accent-color: var(--orange); }
 .step-badge { padding-top: 3px; color: var(--orange); font-size: 13px; font-weight: 700; }
 .step-badge span { color: #b7beb8; font-weight: 400; }
 .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

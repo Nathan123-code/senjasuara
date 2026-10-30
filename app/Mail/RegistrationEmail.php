@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Symfony\Component\Mime\Address;
 
 class RegistrationEmail extends Mailable
 {
@@ -26,6 +27,14 @@ class RegistrationEmail extends Mailable
     {
         return new Envelope(
             subject: 'Konfirmasi Pendaftaran Tiket Senja Suara',
+            replyTo: array_filter([
+                config('mail.reply_to.address')
+                    ? new Address(
+                        config('mail.reply_to.address'),
+                        config('mail.reply_to.name')
+                    )
+                    : null,
+            ]),
         );
     }
 
@@ -36,6 +45,7 @@ class RegistrationEmail extends Mailable
     {
         return new Content(
             htmlString: $this->emailHtml(),
+            text: 'emails.registration-text',
         );
     }
 
