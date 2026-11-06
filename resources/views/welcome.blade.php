@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Daftar tiket untuk konser Senja Suara Festival.">
-        <title>Senja Suara Festival — Pendaftaran Tiket</title>
+        <title>Senja Suara Festival — Form Pendaftaran Tiket</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -21,7 +21,7 @@
             <section class="hero" id="detail-acara">
                 <div class="hero-copy">
                     <div class="eyebrow"><span class="live-dot"></span> Pendaftaran dibuka</div>
-                    <h1>Feel the Sound.<br><em>Live the Moment.</em></h1>
+                    <h1>Feel the Sound.<br><em>Absolute Cinema.</em></h1>
                     <p class="hero-description">Rayakan musik, teman, dan momen yang tidak akan terulang di festival musik paling hangat tahun ini.</p>
 
                     <div class="event-meta">
