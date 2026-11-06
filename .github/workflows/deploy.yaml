@@ -85,6 +85,7 @@ jobs:
       - name: Package application
         run: |
           tar -czf deploy.tar.gz \
+            --exclude="deploy.tar.gz" \
             --exclude=".git" \
             --exclude=".github" \
             --exclude="node_modules" \
