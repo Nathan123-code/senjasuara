@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -18,11 +15,11 @@ concurrency:
 jobs:
   ci:
     name: Test and build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -32,13 +29,18 @@ jobs:
           coverage: none
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: npm
 
       - name: Install PHP dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader
+
+      - name: Prepare Laravel test environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate --force
 
       - name: Install JavaScript dependencies
         run: npm ci
@@ -53,13 +55,13 @@ jobs:
     name: Deploy over SSH
     needs: ci
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: production
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -69,7 +71,7 @@ jobs:
           coverage: none
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: npm
