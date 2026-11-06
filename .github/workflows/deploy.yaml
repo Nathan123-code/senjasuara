@@ -102,6 +102,7 @@ jobs:
           port: ${{ secrets.SSH_PORT || 22 }}
           source: /tmp/deploy.tar.gz
           target: /home/ourprojects-senjasuara/htdocs/senjasuara.ourprojects.my.id
+          strip_components: 1
 
       - name: Run Laravel deployment tasks
         uses: appleboy/ssh-action@v1.2.5
@@ -110,6 +111,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT || 22 }}
+          script_stop: true
           script: |
             cd "/home/ourprojects-senjasuara/htdocs/senjasuara.ourprojects.my.id"
             tar -xzf deploy.tar.gz
